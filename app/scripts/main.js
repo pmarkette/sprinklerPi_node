@@ -1,6 +1,6 @@
 var min_humidity, max_humidity, temp_yesterday, rain_yesterday, rain_factor, temp_factor, humid_factor, adj, rain_today;
 
-jQuery(document).ready(function($) {    
+  
   $.when($.ajax({
     url : 'http://api.wunderground.com/api/b0cb22caebaf9a0e/geolookup/yesterday/q/37.788792,-122.190025.json',
       dataType : 'jsonp',
@@ -23,16 +23,19 @@ jQuery(document).ready(function($) {
     humid_factor = (30 - (min_humidity + max_humidity) / 2);
     adj = (Math.min((Math.max(0, (100 + humid_factor + temp_factor + rain_factor))), 200));
 
-    console.log('Min Humidity Yesterday: ' + min_humidity);
-    console.log('Max Humidity Yesterday: ' + max_humidity);
-    console.log('Mean Temperature Yesterday: ' + temp_yesterday);
-    console.log('Total rainfall yesterday: ' + rain_yesterday);
-    console.log('Rain Factor: ' + rain_factor);
-    console.log('Temperature Factor: ' + temp_factor);
-    console.log('Humidity Factor: ' + humid_factor);
-    console.log('Total rainfall today: ' + rain_today);
-    console.log('Sprinklers will run for ' + adj + '% of the scheduled time.');
-  });
+jQuery(document).ready(function($) {  
+      $("#minhumidity").append(min_humidity);
+    $("#maxhumidity").append(max_humidity);
+    $("#meantemp").append(temp_yesterday);
+    $("#rainfall").append(rain_yesterday);
+    $("#rainfalltoday").append(rain_today);
+    $("#rainfactor").append(rain_factor);
+    $("#tempfactor").append(temp_factor);
+    $("#humfactor").append(humid_factor);
+    $("#adjust").append(adj);
 });
+
+  });
+
 
 
