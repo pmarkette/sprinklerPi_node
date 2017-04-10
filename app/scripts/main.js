@@ -2,7 +2,7 @@ var min_humidity, max_humidity, temp_yesterday, rain_yesterday, rain_factor, tem
 
   
   $.when($.ajax({
-    url : 'http://api.wunderground.com/api/b0cb22caebaf9a0e/geolookup/yesterday/q/37.788792,-122.190025.json',
+    url : 'http://api.wunderground.com/api/b0cb22caebaf9a0e/geolookup/yesterday/q/94619.json',
       dataType : 'jsonp',
       success : function(yesterday_json) {
       min_humidity = parseInt(yesterday_json['history']['dailysummary'][0]['minhumidity']);
@@ -24,7 +24,7 @@ var min_humidity, max_humidity, temp_yesterday, rain_yesterday, rain_factor, tem
     adj = (Math.min((Math.max(0, (100 + humid_factor + temp_factor + rain_factor))), 200));
 
 jQuery(document).ready(function($) {  
-      $("#minhumidity").append(min_humidity);
+    $("#minhumidity").append(min_humidity);
     $("#maxhumidity").append(max_humidity);
     $("#meantemp").append(temp_yesterday);
     $("#rainfall").append(rain_yesterday);
