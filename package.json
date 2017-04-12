@@ -42,5 +42,9 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "node-fetch": "^1.6.3",
+    "sqlite": "^2.5.0"
   }
 }
